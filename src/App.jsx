@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 import "./App.css";
 import New from "./pages/New";
@@ -12,6 +12,12 @@ import Notfound from "./pages/Notfound";
 function App() {
   return (
     <>
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="/new">New</Link>
+        <Link to="/diary">Diary</Link>
+      </div>
+
       <Routes>
         {/* <div>hi</div> Routes 안에서는 Route 컴포넌트만 사용할 수 있다. */}
         <Route path="/" element={<Home />} />

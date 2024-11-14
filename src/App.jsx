@@ -4,6 +4,7 @@ import "./App.css";
 import New from "./pages/New";
 import Diary from "./pages/Diary";
 import Home from "./pages/Home";
+import Notfound from "./pages/Notfound";
 
 // 1. "/" : 모든 일기를 조회하는 Home 페이지
 // 2. "/new" : 새로운 일기를 작성하는 New 페이지
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
         <Route path="/diary" element={<Diary />} />
-        <Route path="/*" element={<Diary />} />
+        <Route path="/*" element={<Notfound />} />
+        {/* `*`는 와일드 카드. switch문의 default와 비슷함 */}
       </Routes>
     </>
   );

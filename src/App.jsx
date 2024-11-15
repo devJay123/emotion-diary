@@ -5,7 +5,7 @@ import New from "./pages/New";
 import Diary from "./pages/Diary";
 import Home from "./pages/Home";
 import Notfound from "./pages/Notfound";
-import { getEmotionImage } from "./util/get-emotion.image";
+import { getEmotionImage } from "./util/get-emotion-image";
 
 // 1. "/" : 모든 일기를 조회하는 Home 페이지
 // 2. "/new" : 새로운 일기를 작성하는 New 페이지

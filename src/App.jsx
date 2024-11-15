@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useReducer, useRef } from "react";
+import { useReducer, useRef, createContext, useMemo } from "react";
 
 import "./App.css";
 import New from "./pages/New";
@@ -7,6 +7,7 @@ import Diary from "./pages/Diary";
 import Home from "./pages/Home";
 import Notfound from "./pages/Notfound";
 import Edit from "./pages/Edit";
+import { useContext } from "react";
 
 const mockData = [
   {
@@ -41,6 +42,9 @@ function reducer(state, action) {
     }
   }
 }
+
+const DiaryStateContext = createContext();
+const DiaryDispatchContext = createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, mockData);
@@ -80,6 +84,10 @@ function App() {
     });
   };
 
+  const createFn = useMemo(() => {
+    return { onCreate, onUpdate, onDelete };
+  }, []);
+
   return (
     <>
       <button
@@ -106,13 +114,17 @@ function App() {
         일기 삭제
       </button>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/new" element={<New />} />
-        <Route path="/diary/:id" element={<Diary />} />
-        <Route path="/edit/:id" element={<Edit />} />
-        <Route path="/*" element={<Notfound />} />
-      </Routes>
+      <DiaryStateContext.Provider value={data}>
+        <DiaryDispatchContext.Provider value={createFn}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/new" element={<New />} />
+            <Route path="/diary/:id" element={<Diary />} />
+            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/*" element={<Notfound />} />
+          </Routes>
+        </DiaryDispatchContext.Provider>
+      </DiaryStateContext.Provider>
     </>
   );
 }

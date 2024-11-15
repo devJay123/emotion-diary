@@ -11,15 +11,21 @@ import Edit from "./pages/Edit";
 const mockData = [
   {
     id: 1,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2024-11-01").getTime(),
     emotionId: 1,
     content: "오늘의 일기 1",
   },
   {
     id: 2,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2024-11-02").getTime(),
     emotionId: 2,
     content: "오늘의 일기 2",
+  },
+  {
+    id: 3,
+    createdDate: new Date("2024-10-23").getTime(),
+    emotionId: 3,
+    content: "오늘의 일기 3",
   },
 ];
 
@@ -42,8 +48,8 @@ function reducer(state, action) {
   }
 }
 
-const DiaryStateContext = createContext();
-const DiaryDispatchContext = createContext();
+export const DiaryStateContext = createContext();
+export const DiaryDispatchContext = createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, mockData);

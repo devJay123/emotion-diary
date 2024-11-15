@@ -1,3 +1,3 @@
 export default function New() {
-  return <div></div>;
+  return <div>New</div>;
 }

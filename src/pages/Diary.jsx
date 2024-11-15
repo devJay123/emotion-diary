@@ -1,3 +1,3 @@
 export default function Diary() {
-  return <div></div>;
+  return <div>Diary</div>;
 }

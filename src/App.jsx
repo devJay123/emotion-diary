@@ -30,7 +30,8 @@ function App() {
         {/* <div>hi</div> Routes 안에서는 Route 컴포넌트만 사용할 수 있다. */}
         <Route path="/" element={<Home />} />
         <Route path="/new" element={<New />} />
-        <Route path="/diary" element={<Diary />} />
+        <Route path="/diary/:id" element={<Diary />} />
+        {/* url parameter 동적으로 받기 */}
         <Route path="/*" element={<Notfound />} />
         {/* `*`는 와일드 카드. switch문의 default와 비슷함 */}
       </Routes>

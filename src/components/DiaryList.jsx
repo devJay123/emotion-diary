@@ -2,7 +2,7 @@ import "./DiaryList.css";
 import Button from "./Button";
 import DiaryItem from "./DiaryItem";
 
-export default function DiaryList() {
+export default function DiaryList({ data }) {
   return (
     <div className="DiaryList">
       <div className="menu_bar">
@@ -13,7 +13,9 @@ export default function DiaryList() {
         <Button text={"새 일기 쓰기"} type={"POSITIVE"} />
       </div>
       <div className="list_wrapper">
-        <DiaryItem />
+        {data.map((item) => (
+          <DiaryItem key={item.id} {...item} />
+        ))}
       </div>
     </div>
   );

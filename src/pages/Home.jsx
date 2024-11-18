@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import DiaryList from "../components/DiaryList";
 
+// 함수가 매개변수만으로도 작동이 잘되고 return을 잘 뱉어내면
+// 컴포넌트 외부에 함수를 선언해도 문제 없다
 const getMonthlyData = (pivotDate, data) => {
   const beginTime = new Date(
     pivotDate.getFullYear(),

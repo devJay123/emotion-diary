@@ -9,9 +9,7 @@ export default function EmotionItem({
 }) {
   return (
     <div
-      onClick={() => {
-        onClick(emotionId);
-      }}
+      onClick={onClick}
       className={`EmotionItem ${
         isSelected ? `EmotionItem_on_${emotionId}` : ""
       }`}

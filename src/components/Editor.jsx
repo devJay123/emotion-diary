@@ -92,9 +92,9 @@ export default function Editor() {
       <section className="content_section">
         <h4>오늘의 일기</h4>
         <textarea
-          onChange={(e) => {
-            setInput({ ...input, content: e.target.value });
-          }}
+          name="content"
+          value={input.content}
+          onChange={onChangeInput}
           placeholder="오늘은 어땠나요?"
         ></textarea>
       </section>
